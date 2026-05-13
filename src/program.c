@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "board.h"
 
 int main(void) {
@@ -5,4 +6,5 @@ int main(void) {
     if (!board)
         return 1;
     render_board(board);
+    free(board);
 }
