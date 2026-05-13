@@ -51,6 +51,19 @@ typedef struct Board {
 void render_board(const Board* board);
 
 /**
+ * @brief Sets a cell at the specified coordinates to a specific state.
+ * 
+ * Parameters x, y, and state must be in a valid range in order for this function to accept the specified cell state.
+ * 
+ * @param[in] x The x-coordinate of the cell.
+ * @param[in] y The y-coordinate of the cell.
+ * @param[in] state The state of the cell to set.
+ * @param[out] board The pointer to the board where to set the cell.
+ * @return 0 if the cell is set successfully; otherwise, 1.
+ */
+int set_cell(const int x, const int y, const CellState state, Board* board);
+
+/**
  * @brief Initializes the specified board to its default value.
  * 
  * @param[out] board The pointer to the board to initialize.

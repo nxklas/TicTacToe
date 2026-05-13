@@ -31,6 +31,24 @@ void render_board(const Board* board) {
     printf("%s", str);
 }
 
+int set_cell(const int x, const int y, const CellState state, Board* board) {
+    if (x > -1 && x < BOARD_SIZE && y > -1 && y < BOARD_SIZE && (state == CELL_STATE_X || state == CELL_STATE_O)) {
+        CellState* cell = &board->cells[y * BOARD_SIZE + x];
+        
+        if (*cell != CELL_STATE_NONE) {
+            printf("The specified cell at x: %d, y: %d was already set.\n", x, y);
+            return 1;
+        }
+        
+        *cell = state;
+        return 0;
+    }
+    
+    printf("x must be between 0 and %d (actual: %d), y must be between 0 and %d (actual: %d), "
+        "and state must be either %d or %d (actual: %d).\n", BOARD_SIZE-1, x, BOARD_SIZE-1, y, CELL_STATE_X, CELL_STATE_O, state);
+    return 1;
+}
+
 void init_board(Board* board) {
     for (int i = 0; i < BOARD_TOTAL_SIZE; i++)
         board->cells[i] = CELL_STATE_NONE;
@@ -43,7 +61,7 @@ Board* create_board(void) {
         printf("No memory could be allocated to store the board in.\n");
         return NULL;
     }
-    
+
     init_board(board);
     return board;
 }
