@@ -1,6 +1,8 @@
 #ifndef TICTACTOE_BOARD_H
 #define TICTACTOE_BOARD_H
 
+#include <stdbool.h>
+
 /**
  * Defines constants for the dimentsions of a TicTacToe board.
  */
@@ -62,6 +64,24 @@ void render_board(const Board* board);
  * @return 0 if the cell is set successfully; otherwise, 1.
  */
 int set_cell(const int x, const int y, const CellState state, Board* board);
+
+/**
+ * @brief Checks for the winner on the specified board.
+ * 
+ * @param[in] board The pointer to the board where to check for the winner.
+ * @return A cell state representing the winner. If no winner is set, CELL_STATE_NONE is returned.
+ */
+CellState check_winner(const Board* board);
+
+/**
+ * @brief Checks whether every cell on the specified board is set.
+ * 
+ * Cells with the state CELL_STATE_NONE are considered unset.
+ * 
+ * @param[in] board The pointer to the board to check.
+ * @return true if all cells are set; otherwise, false.
+ */
+bool is_board_full(const Board* board);
 
 /**
  * @brief Initializes the specified board to its default value.
