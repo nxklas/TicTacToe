@@ -6,3 +6,7 @@ A simple, text-based implementation of TicTacToe.
 ```bash
 ./build.sh && ./build/tictactoe
 ```
+##### CMD & MSVC
+```bat
+build.bat && build\tictactoe.exe
+```
