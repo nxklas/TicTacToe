@@ -2,11 +2,11 @@
 A simple, text-based implementation of TicTacToe.
 
 ### How to build and run
-##### Bash & GCC
+#### 🐧 Bash & GCC
 ```bash
 ./build.sh && ./build/tictactoe
 ```
-##### CMD & MSVC
+#### 🪟 CMD & MSVC
 ```bat
 build.bat && build\tictactoe.exe
 ```
